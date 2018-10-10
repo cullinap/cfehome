@@ -25,6 +25,6 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', HomeView.as_view()),
     url(r'^terms/$', TemplateView.as_view(template_name='terms.html')),
-    url(r'^about/', AboutView.as_view()),
-    url(r'^contact/', contact),
+    url(r'^about/$', AboutView.as_view()),
+    url(r'^contact/$', contact),
 ]

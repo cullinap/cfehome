@@ -3,6 +3,7 @@ from django.shortcuts import render
 # Create your views here.
 from django.views import View
 from django.views.generic import TemplateView
+from .models import DailyRecord
 
 class HomeView(TemplateView):
 	template_name = 'home.html'
@@ -23,6 +24,11 @@ class AboutView(View):
 
 
 def contact(request):
-	context = {}
-	return render(request, 'contact.html', context)
+	template_name = 'dailytest/dailytest_list.html'
+	queryset = DailyRecord.objects.all()
+	context = {
+		"object_list": queryset
+
+	}
+	return render(request, template_name, context)
 
