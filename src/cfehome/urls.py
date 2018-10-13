@@ -17,9 +17,13 @@ from django.conf.urls import url
 from django.contrib import admin
 from django.views.generic import TemplateView
 
-from dailytest.views import HomeView, AboutView, contact
+from dailytest.views import (
+    HomeView, 
+    AboutView, 
+    contact,
+    DailyRecordListView,
 
-
+)
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -27,4 +31,7 @@ urlpatterns = [
     url(r'^terms/$', TemplateView.as_view(template_name='terms.html')),
     url(r'^about/$', AboutView.as_view()),
     url(r'^contact/$', contact),
+    url(r'^list/$', DailyRecordListView.as_view()),
+    url(r'^list/(?P<slug>\w+)$', DailyRecordListView.as_view()),
+
 ]
